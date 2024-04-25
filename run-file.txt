@@ -1,0 +1,28 @@
+Running the Vue.js Project Locally
+This guide will walk you through the steps to run the Vue.js project locally on your machine. Before you begin, make sure you have Node.js and npm (Node Package Manager) installed.
+
+Prerequisites
+Node.js (includes npm)
+
+Step 1: Clone the Repository
+Clone the repository to your local machine using the following command:
+git clone https://github.com/Haseeb-Nadeem/Interview-Assignment-01.git
+Replace <repository-url> with the URL of your project's repository.
+
+Step 2: Open project using VScode
+
+Step 3: Install Dependencies
+Install project dependencies using npm:
+npm install
+
+Step 4: Run the Development Server
+Run the development server to compile and serve the Vue.js application locally:
+npm run dev
+This command will start a development server and provide a URL where you can view your Vue application in a web browser.
+
+Step 5: View Your Vue Application
+Open a web browser and navigate to the URL provided by the development server. By default, the URL is usually http://localhost:8080.
+
+Additional Commands
+npm run build: Builds the Vue.js application for production.
+npm run lint: Lints and fixes files.
