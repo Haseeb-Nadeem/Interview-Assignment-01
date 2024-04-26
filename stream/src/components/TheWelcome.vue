@@ -1,10 +1,15 @@
 <script setup>
-// import WelcomeItem from './WelcomeItem.vue'
-// import DocumentationIcon from './icons/IconDocumentation.vue'
-// import ToolingIcon from './icons/IconTooling.vue'
-// import EcosystemIcon from './icons/IconEcosystem.vue'
-// import CommunityIcon from './icons/IconCommunity.vue'
-// import SupportIcon from './icons/IconSupport.vue'
+import { ref } from 'vue'
+
+// Define the email ref
+const email = ref('')
+const isAutofilled = ref(false)
+
+// Define the method to check autofill
+const checkAutofill = (event) => {
+  // Check if input value is autofilled
+  isAutofilled.value = event.target.value !== ''
+}
 import 'typeface-poppins'
 import FooterLink from './FooterLink.vue'
 import MainLogo from './MainLogo.vue'
@@ -22,14 +27,12 @@ import appleLogo from '@/assets/images/apple-logo.png'
 
         <div class="sign-in-detail-wrapper">
           <div class="googl-links-wrap">
-            <a href="#" class="signIn-social-icon mb-3">
-              <img :src="googlelogo" alt="Google Logo" />
-              Continue with Google
-            </a>
-            <a href="#" class="signIn-social-icon mb-3">
-              <img :src="appleLogo" alt="Google Logo" />
-              Continue with Apple
-            </a>
+            <router-link to="/otp" class="signIn-social-icon mb-3"
+              ><img :src="googlelogo" alt="Google Logo" /> Continue with Google</router-link
+            >
+            <router-link to="/otp" class="signIn-social-icon mb-3"
+              ><img :src="appleLogo" alt="Google Logo" /> Continue with Apple</router-link
+            >
           </div>
 
           <div class="or-text d-flex align-items-center justify-content-center gap-2 mb-3">
@@ -42,13 +45,22 @@ import appleLogo from '@/assets/images/apple-logo.png'
             <label for="" class="element-text pb-1">Your Email</label>
             <input
               type="email"
-              name=""
-              id=""
+              name="email"
+              id="email"
+              autocomplete="email"
               class="email-input w-100 text-left"
               placeholder="e.g. john_brown@company.com"
+              required
+              @input="checkAutofill"
+              v-model="email"
             />
           </div>
-          <router-link to="/otp" class="element-btn w-100 mb-4">Continue</router-link>
+          <router-link
+            to="/otp"
+            :class="{ 'element-btn': true, autofilled: isAutofilled }"
+            class="element-btn w-100 mb-4"
+            >Continue</router-link
+          >
           <h3 class="element-text card-bg-theme mb-0">
             We'll email you a magic code for a password-free sign-in. Or you can
             <router-link to="" class="sign-In-manually">sign in manually instead</router-link>.
@@ -126,6 +138,19 @@ import appleLogo from '@/assets/images/apple-logo.png'
   width: 100%;
   text-align: center;
   text-decoration: none;
+}
+
+.autofilled {
+  border: none;
+  padding: 15px 16px 15px 16px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  background-color: #3cc553;
 }
 .element-text.card-bg-theme {
   background-color: #f4f8f9;

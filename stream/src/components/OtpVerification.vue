@@ -27,19 +27,19 @@ const navigateToSignIn = () => {
         <div class="sign-in-detail-wrapper">
           <div class="otp-number d-flex align-items-center justify-content-between mb-4">
             <div>
-              <input type="text" name="" id="" />
+              <input type="text" name="" id="" value="1" disabled />
             </div>
             <div>
-              <input type="text" name="" id="" />
+              <input type="text" name="" id="" value="2" disabled />
             </div>
             <div>
-              <input type="text" name="" id="" />
+              <input type="text" name="" id="" value="3" disabled />
             </div>
             <div>
-              <input type="text" name="" id="" />
+              <input type="text" name="" id="" value="4" disabled />
             </div>
             <div>
-              <input type="text" name="" id="" />
+              <input type="text" name="" id="" value="5" disabled />
             </div>
           </div>
           <router-link to="/signin" class="element-btn w-100 mb-4 mt-2">Continue</router-link>.
